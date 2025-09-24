@@ -93,12 +93,12 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 
 /* responsive */
 @media (max-width:800px){
-  body{  min-height: 150vh;}
+ 
   .countdown{grid-template-columns:repeat(2,1fr)}
   .title h1{font-size:20px}
 }
 @media (max-width:420px){
-  body{  min-height: 150vh;}
+  
   .countdown{grid-template-columns:repeat(1,1fr)}
 }
 
@@ -123,7 +123,7 @@ opacity: 1;
 
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
-  body{  min-height: 150vh;}
+  
   .wrap {
   
 
@@ -153,7 +153,7 @@ opacity: 1;
 }
 
 @media (max-width: 480px) {
-  body{  min-height: 150vh;}
+  
   .countdown {
     grid-template-columns: 1fr; /* عمود واحد فقط في الشاشات الأصغر */
   }
