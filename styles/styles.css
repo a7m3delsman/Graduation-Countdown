@@ -1,18 +1,25 @@
 /* --- Reset --- */
+:root {
+--gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+--gradient-2: linear-gradient(45deg, #ff6b6b, #ff8e53);
+--gradient-3: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html,body{height:100%;  min-height: 100vh;}
 body{
   font-family: 'Segoe UI', Tahoma, Roboto, 'Noto Sans Arabic', sans-serif;
   -webkit-font-smoothing:antialiased;
   background: linear-gradient(135deg,#d65d3f 0%, #0c3786 50%, #092c64 100%);
   color: #fff;
     background-size: 400% 400%;
+    min-height: 100vh;
 
     animation: gradientFlow 12s ease infinite;
 
   display:flex;align-items:center;justify-content:center;
   padding:32px;
-  overflow:hidden;
+
 }
 @keyframes gradientFlow {
   0% { background-position: 0% 50%; }
@@ -86,10 +93,12 @@ header{display:flex;align-items:center;justify-content:space-between;margin-bott
 
 /* responsive */
 @media (max-width:800px){
+  body{  min-height: 150vh;}
   .countdown{grid-template-columns:repeat(2,1fr)}
   .title h1{font-size:20px}
 }
 @media (max-width:420px){
+  body{  min-height: 150vh;}
   .countdown{grid-template-columns:repeat(1,1fr)}
 }
 
@@ -114,7 +123,10 @@ opacity: 1;
 
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
+  body{  min-height: 150vh;}
   .wrap {
+  
+
     padding: 24px 16px; /* تقليل المساحة الداخلية للكونتينر */
   }
 
@@ -141,6 +153,7 @@ opacity: 1;
 }
 
 @media (max-width: 480px) {
+  body{  min-height: 150vh;}
   .countdown {
     grid-template-columns: 1fr; /* عمود واحد فقط في الشاشات الأصغر */
   }
