@@ -104,4 +104,26 @@
     transform: translateY(0);
     opacity: 1;
     }
+
     }
+@media (max-width: 768px) {
+  .countdown {
+    flex-direction: column; /* بدل ترتيب العناصر لتكون تحت بعض */
+    gap: 10px;
+  }
+
+  .countdown-item {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
