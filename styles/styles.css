@@ -1,129 +1,147 @@
-  /* --- Reset --- */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: 'Segoe UI', Tahoma, Roboto, 'Noto Sans Arabic', sans-serif;
-      -webkit-font-smoothing:antialiased;
-      background: linear-gradient(135deg,#0f172a 0%, #0b2545 50%, #041023 100%);
-      color: #fff;
-      display:flex;align-items:center;justify-content:center;
-      padding:32px;
-      overflow:hidden;
-    }
-    @font-face {
-         font-family: digital;
-         src: url("fonts/digital-7\ \(mono\ italic\).ttf") format('truetype');
+/* --- Reset --- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Segoe UI', Tahoma, Roboto, 'Noto Sans Arabic', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(135deg,#d65d3f 0%, #0c3786 50%, #092c64 100%);
+  color: #fff;
+    background-size: 400% 400%;
+
+    animation: gradientFlow 12s ease infinite;
+
+  display:flex;align-items:center;justify-content:center;
+  padding:32px;
+  overflow:hidden;
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-    /* --- Floating gradient shapes (background) --- */
-    .bg-shape{position:absolute;border-radius:40%;filter:blur(70px);opacity:.65;mix-blend-mode:screen;transform:translateZ(0)}
-    .bg-shape.s1{width:520px;height:520px;left:-120px;top:-160px;background:linear-gradient(45deg,#ff6b6b,#ff9a9e)}
-    .bg-shape.s2{width:420px;height:420px;right:-140px;bottom:-120px;background:linear-gradient(45deg,#7afcff,#6b6bff);opacity:.5}
-    .bg-shape.s3{width:300px;height:300px;left:40%;top:-100px;background:linear-gradient(45deg,#9dffb0,#66ffea);opacity:.35}
+@font-face {
+    font-family: digital;
+    src: url("digital-7\ \(italic\).ttf") format('truetype'); /* Corrected font path */
+  }
 
-    /* --- Container --- */
-    .wrap{animation: slideIn 1s ease-out forwards;opacity: 0; position:relative;z-index:2;width:100%;max-width:1100px;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));border-radius:24px;padding:32px;box-shadow:0 10px 40px rgba(2,6,23,0.7);backdrop-filter: blur(8px);border:1px solid rgba(255,255,255,0.04)}
+/* --- Container --- */
+.wrap{animation: slideIn 1s ease-out forwards;opacity: 0; position:relative;z-index:2;width:100%;max-width:1100px;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));border-radius:24px;padding:32px;box-shadow:0 10px 40px rgba(2,6,23,0.7); backdrop-filter: blur(8px); border:1px solid rgba(158, 26, 26, 0.04); margin: auto; }
 
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:16px}
-    .title{
-      display:flex;flex-direction:column;gap:6px
-    }
-    .title h1{font-size:26px;letter-spacing:0.2px}
-    .title p{opacity:.75;font-size:13px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:16px}
+.title{
+  display:flex;flex-direction:column;gap:6px
+}
+.title h1{font-size:26px;letter-spacing:0.2px}
+.title p{opacity:.75;font-size:13px}
 
-    .controls{display:flex;gap:10px;align-items:center}
-    .btn{ font-family: Arial, Helvetica, sans-serif;
-        color: #ffffff;
-        background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-        padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);
-        cursor:pointer;
-        display:inline-flex;
-        align-items:center;
-        gap:8px;
-        font-size:16px
-    }
-    .btn:hover{
-        color: #d8e700;
-        transform:translateY(-3px);transition:all .2s ease}
+.controls{display:flex;gap:10px;align-items:center}
+.btn{ font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:16px
+}
+.btn:hover{
+    color: #d8e700;
+    transform:translateY(-3px);transition:all .2s ease}
 
-    /* --- Countdown cards --- */
-    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)
-    }
-    .card .value{
-	font-family: "digital";
-        font-weight:700;font-size:34px;letter-spacing:1px}
-        .card:hover{transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);}
-    .card .label{opacity:.75;margin-top:6px;font-size:13px}
+/* --- Countdown cards --- */
 
-    /* small animated accent lines */
-    .card:before{content:'';position:absolute;left:-20%;top:0;height:4px;width:140%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);opacity:.6}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)
+}
+.card .value{
+      font-family: "digital";
+    font-weight:700;font-size:34px;letter-spacing:1px}
+    .card:hover{transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);}
+.card .label{opacity:.75;margin-top:6px;font-size:13px}
 
-    /* flip animation for digits */
-    .flip{display:inline-block;transform-origin:center;animation:flip .8s cubic-bezier(.175,.885,.32,1.275)}
-    @keyframes flip{0%{transform:rotateX(90deg) translateY(-6px);opacity:0}60%{transform:rotateX(-10deg) translateY(2px);opacity:1}100%{transform:none;opacity:1}}
+/* small animated accent lines */
+.card:before{content:'';position:absolute;left:-20%;top:0;height:4px;width:140%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);opacity:.6}
 
-    /* footer message */
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:10px}
-    .meta small{opacity:.75}
+/* flip animation for digits */
+.flip{display:inline-block;transform-origin:center;animation:flip .8s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes flip{0%{transform:rotateX(90deg) translateY(-6px);opacity:0}60%{transform:rotateX(-10deg) translateY(2px);opacity:1}100%{transform:none;opacity:1}}
 
-    /* settings modal */
-    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:10;visibility:hidden;opacity:0;transition:all .2s ease}
-    .modal.open{visibility:visible;opacity:1}
-    .panel{background:linear-gradient(180deg,#071029,#081426);padding:22px;border-radius:12px;min-width:320px;border:1px solid rgba(255,255,255,0.04)}
-    .panel label{display:block;font-size:13px;margin-bottom:6px}
-    .panel input[type="datetime-local"], .panel input[type="date"], .panel input[type="time"], .panel input[type="text"]{width:100%;padding:10px;border-radius:8px;border:none;background:rgba(255,255,255,0.02);color:#fff}
-    .panel .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+/* footer message */
+.meta{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:10px}
+.meta small{opacity:.75}
 
-    /* responsive */
-    @media (max-width:800px){
-      .countdown{grid-template-columns:repeat(2,1fr)}
-      .title h1{font-size:20px}
-    }
-    @media (max-width:420px){
-      .countdown{grid-template-columns:repeat(1,1fr)}
-    }
+/* settings modal */
+.modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:10;visibility:hidden;opacity:0;transition:all .2s ease}
+.modal.open{visibility:visible;opacity:1}
+.panel{background:linear-gradient(180deg,#071029,#081426);padding:22px;border-radius:12px;min-width:320px;border:1px solid rgba(255,255,255,0.04)}
+.panel label{display:block;font-size:13px;margin-bottom:6px}
+.panel input[type="datetime-local"], .panel input[type="date"], .panel input[type="time"], .panel input[type="text"]{width:100%;padding:10px;border-radius:8px;border:none;background:rgba(255,255,255,0.02);color:#fff}
+.panel .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
 
-    /* subtle floating animation for BG shapes */
-    @keyframes floaty{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-20px) translateX(10px)}100%{transform:translateY(0) translateX(0)}}
-    .bg-shape{animation:floaty 12s ease-in-out infinite}
-    .bg-shape.s2{animation-duration:18s}
-    .bg-shape.s3{animation-duration:22s}
+/* responsive */
+@media (max-width:800px){
+  .countdown{grid-template-columns:repeat(2,1fr)}
+  .title h1{font-size:20px}
+}
+@media (max-width:420px){
+  .countdown{grid-template-columns:repeat(1,1fr)}
+}
 
-    /* celebration canvas (hidden until finish) */
-    #confetti{position:fixed;inset:0;pointer-events:none;z-index:9}
-    @keyframes slideIn {
-    from {
-    transform: translateY(100px);
-    opacity: 0;
-    }
-    to {
-    transform: translateY(0);
-    opacity: 1;
-    }
+/* subtle floating animation for BG shapes */
+@keyframes floaty{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-20px) translateX(10px)}100%{transform:translateY(0) translateX(0)}}
+.bg-shape{animation:floaty 12s ease-in-out infinite}
+.bg-shape.s2{animation-duration:18s}
+.bg-shape.s3{animation-duration:22s}
 
-    }
+/* celebration canvas (hidden until finish) */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9}
+@keyframes slideIn {
+from {
+transform: translateY(100px);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+
+/* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
-  .countdown {
-    flex-direction: column; /* بدل ترتيب العناصر لتكون تحت بعض */
-    gap: 10px;
+  .wrap {
+    padding: 24px 16px; /* تقليل المساحة الداخلية للكونتينر */
   }
 
-  .countdown-item {
-    font-size: 1.5rem;
-    padding: 10px;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
+  header {
+    flex-direction: column; /* ترتيب الهيدر عموديًا */
+    align-items: center;
     text-align: center;
+    gap: 12px;
   }
 
   .btn {
-    font-size: 0.9rem;
-    padding: 8px 12px;
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr); /* 2 عمود في الشاشات الصغيرة */
+    gap: 12px;
+  }
+
+  .card .value {
+    font-size: 28px; /* تصغير حجم الخط للأرقام */
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown {
+    grid-template-columns: 1fr; /* عمود واحد فقط في الشاشات الأصغر */
   }
 }
