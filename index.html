@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <link rel="icon" href="image/Icon.ico">
+    <meta thhp-equiv="X-UA-Compatible" content="IE=edge ,chrome=1">
+    <meta name="description" content="Graduation-Countdown _  عد تنازلي حتي التخرج ">
+    <meta name="keywords" content=" Countdown, Graduation, html, js, css">
+    <meta name="author" content="Ahmed ELsaman">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://a7m3delsman.github.io/Graduation-Countdown/" />
+    <meta name="og:title" content="Graduation-Countdown _  عد تنازلي حتي التخرج ">
+    <meta name="og:description" content="Graduation-Countdown _  عد تنازلي حتي التخرج ">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="https://static.wixstatic.com/media/74428d_dbfd2dfb2f244e68a155f0cc77e4663c~mv2.jpg/v1/fill/w_568,h_398,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/74428d_dbfd2dfb2f244e68a155f0cc77e4663c~mv2.jpg">
+    <meta property="og:locale" content="ar" />
+    <meta property="og:site_name" content="Graduation-Countdown _  عد تنازلي حتي التخرج "/>
+
+  <title>Graduation-Countdown _  عد تنازلي حتي التخرج </title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <div class="bg-shape s1" aria-hidden></div>
+  <div class="bg-shape s2" aria-hidden></div>
+  <div class="bg-shape s3" aria-hidden></div>
+
+  <div class="wrap" role="main">
+    <header>
+      <div class="title">
+        <h1>عدّ تنازلي للتخرّج من الجامعة 🎓</h1>
+        <p id="targetLabel">التاريخ الهدف: <strong id="displayTarget">1 يونيو 2026 10:00</strong></p>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="openSettings">تغيير التاريخ</button>
+        <button class="btn" id="resetBtn">إعادة الضبط</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="countdown" aria-label="Countdown">
+        <div class="card" id="daysCard">
+          <div class="value" id="days">0</div>
+          <div class="label">أيام</div>
+        </div>
+        <div class="card" id="hoursCard">
+          <div class="value" id="hours">0</div>
+          <div class="label">ساعات</div>
+        </div>
+        <div class="card" id="minutesCard">
+          <div class="value" id="minutes">0</div>
+          <div class="label">دقائق</div>
+        </div>
+        <div class="card" id="secondsCard">
+          <div class="value" id="seconds">0</div>
+          <div class="label">ثواني</div>
+        </div>
+      </section>
+
+      <div class="meta">
+        <small id="status">يتم التحديث كل ثانية — استمتع بالتحضير!</small>
+        <button title="on / off sound" class="btn" id="muteBtn">🔊</button>
+        
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for settings -->
+  <div class="modal" id="modal">
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+      <h3 id="panelTitle">تعيين تاريخ التخرج</h3>
+      <label for="dateInput">اختر التاريخ والوقت</label>
+      <input id="dateInput" type="datetime-local" />
+      <div style="height:10px"></div>
+      <label for="labelInput">نص العرض (اختياري)</label>
+      <input id="labelInput" type="text" placeholder="مثال : اخر امتحان" />
+      <div class="actions">
+        <button class="btn" id="saveBtn">حفظ</button>
+        <button class="btn" id="closeBtn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti"></canvas>
+<audio id="tickSound" src="sound/click.mp3" preload="auto"></audio>
+<audio id="celebrationSound" src="sound/celebration.m4a" preload="auto"></audio>
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>
